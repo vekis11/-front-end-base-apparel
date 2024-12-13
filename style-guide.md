@@ -1,28 +1,43 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <h1>We're launching soon!</h1>
-    </header>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    text-align: center;
+}
 
-    <main>
-        <h2>Stay in the loop</h2>
-        <form id="subscription-form">
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-            <p id="error-message" class="error"></p>
-        </form>
-    </main>
+header h1 {
+    font-size: 2rem;
+    color: #333;
+}
 
-    <footer>
-        <p>Copyright © 2024 Company Name</p>
-    </footer>
+input[type="email"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    display: none; /* Initially hidden */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
