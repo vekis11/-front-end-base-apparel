@@ -2,104 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ensures proper display on all devices -->
-  <link rel="icon" type="image/png" sizes="32x32" href="."C:\Users\vekis\Desktop\MSIT\Term 4\Projects\Software Git\base-apparel-coming-soon-master\images\favicon-32x32.png"">
-  <title>Frontend Mentor | Base Apparel coming soon page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsiveness -->
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customize them in your own stylesheet -->
+  <title>Frontend Mentor | De Don Fashion coming soon page</title>
+
+  <!-- Styles for layout and form validation -->
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f1f5f9;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       height: 100vh;
-      margin: 0;
-      text-align: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    /* Flexbox layout for content */
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap; /* Stacks on mobile */
+    }
+
+    /* Left section for form */
+    .form-container {
+      max-width: 500px;
+      text-align: left;
+      color: #333;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #1e40af;
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.1rem;
-      margin-top: 10px;
-      color: #6b7280;
+      font-size: 1.1em;
+      margin-bottom: 20px;
     }
 
-    .form-container {
-      margin-top: 30px;
-      background-color: #fff;
-      padding: 40px;
-      width: 100%;
-      max-width: 400px;
-      border-radius: 8px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .form-container input {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      margin-bottom: 15px;
-      border-radius: 4px;
+    input[type="email"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
       border: 1px solid #ccc;
-    }
-
-    .form-container button {
       width: 100%;
-      padding: 12px;
-      background-color: #ef4444; /* red color for the button */
-      color: #fff;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #00A8E8;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
+      font-size: 1em;
+      width: 100%;
     }
 
-    .form-container button:hover {
-      background-color: #dc2626;
+    button:hover {
+      background-color: #007BB5;
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #6b7280;
+    .error-message {
+      color: red;
+      font-size: 0.9em;
     }
 
-    footer a {
-      color: #1e40af;
-      text-decoration: none;
+    /* Right section for image */
+    .image-container {
+      flex-shrink: 0;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .form-container {
+        max-width: 90%;
+      }
+
+      .image-container {
+        margin-top: 30px;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Main Heading -->
-  <h1>We're Coming Soon!</h1>
-  <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+  <main>
+    <section class="content">
+      <!-- Form Section (Left Side) -->
+      <div class="form-container">
+        <h1>We're coming soon</h1>
+        <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+        
+        <form id="emailForm">
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <button type="submit">Notify Me</button>
+          <p class="error-message" id="error-message"></p>
+        </form>
+      </div>
+      
+      <!-- Image Section (Right Side) -->
+      <div class="image-container">
+        <img src="images/hero-desktop.jpg" alt="Coming Soon Image">
+      </div>
+    </section>
+  </main>
 
-  <!-- Email Sign-up Form -->
-  <div class="form-container">
-    <h2>Stay Updated</h2>
-    <form id="signup-form">
-      <input type="email" id="email" placeholder="Enter your email" required>
-      <button type="submit">Notify Me</button>
-      <p id="error-message" style="color: #ef4444; font-size: 0.9rem;"></p>
-    </form>
-  </div>
-
-  <!-- Footer with attribution -->
+  <!-- Footer -->
   <footer>
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
@@ -107,6 +149,24 @@
     </p>
   </footer>
 
-  <script src="index.js"></script>
+  <script>
+    // Form validation for email input
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      const emailInput = document.getElementById('email');
+      const errorMessage = document.getElementById('error-message');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailInput.value) {
+        errorMessage.textContent = "Please enter an email address.";
+        event.preventDefault();
+      } else if (!emailRegex.test(emailInput.value)) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        event.preventDefault();
+      } else {
+        errorMessage.textContent = ""; // Clear any previous error messages
+      }
+    });
+  </script>
+
 </body>
 </html>
