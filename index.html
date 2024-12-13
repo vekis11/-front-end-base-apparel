@@ -2,113 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsiveness -->
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling for mobile devices -->
+  <title>Frontend Mentor | Base Apparel Coming Soon Page</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Base Apparel coming soon page</title>
-
-  <!-- Styles for layout and form validation -->
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
+    /* Resetting some default styles */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%)), url('images/bg-pattern-desktop.html') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      text-align: center;
+      padding: 0 20px;
     }
 
+    /* Layout for main content */
     main {
       width: 100%;
-      max-width: 1200px;
-      padding: 20px;
-    }
-
-    /* Flexbox layout for content */
-    .content {
+      max-width: 1440px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 50px;
-      flex-wrap: wrap; /* Stacks on mobile */
+      flex-wrap: wrap; /* Ensures responsiveness */
+      margin-top: 50px;
     }
 
-    /* Left section for form */
+    /* Form container styling */
     .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
       max-width: 500px;
       text-align: left;
-      color: #333;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.1em;
+      font-size: 2.5rem;
+      color: hsl(0, 6%, 24%); /* Dark Grayish Red */
       margin-bottom: 20px;
     }
 
-    form {
+    p {
+      font-size: 1.2rem;
+      color: hsl(0, 6%, 24%); /* Dark Grayish Red */
+      margin-bottom: 20px;
+    }
+
+    /* Sign-up form inside the container */
+    .signup {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
     }
 
     input[type="email"] {
-      padding: 10px;
-      font-size: 1em;
-      border-radius: 5px;
-      border: 1px solid #ccc;
       width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
     }
 
     button {
-      padding: 12px 20px;
-      background-color: #00A8E8;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
       width: 100%;
+      padding: 12px;
+      background-color: hsl(0, 93%, 68%); /* Soft Red */
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #007BB5;
+      background-color: hsl(0, 80%, 86%); /* Lighter Soft Red */
+    }
+
+    button:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
     }
 
     .error-message {
-      color: red;
-      font-size: 0.9em;
+      color: hsl(0, 93%, 68%); /* Soft Red */
+      font-size: 0.9rem;
+      margin-top: 10px;
     }
 
-    /* Right section for image */
+    /* Image container */
     .image-container {
+      max-width: 500px;
       flex-shrink: 0;
     }
 
     img {
       width: 100%;
       height: auto;
-      max-width: 500px;
       border-radius: 10px;
     }
 
-    /* Mobile responsiveness */
+    /* Footer styling */
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%); /* Blue color for links */
+    }
+
+    /* Responsive Design for smaller screens */
     @media (max-width: 768px) {
-      .content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      h1 {
+        font-size: 2rem;
       }
 
       .form-container {
         max-width: 90%;
+        padding: 20px;
+      }
+
+      .signup {
+        gap: 15px;
       }
 
       .image-container {
@@ -116,29 +148,47 @@
         max-width: 100%;
       }
     }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .signup {
+        padding: 15px;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <main>
-    <section class="content">
-      <!-- Form Section (Left Side) -->
-      <div class="form-container">
-        <h1>We're coming soon</h1>
-        <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
-        
-        <form id="emailForm">
+    <!-- Left side: Email subscription form -->
+    <div class="form-container">
+      <h1>We're coming soon</h1>
+      <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+
+      <form id="emailForm">
+        <div class="signup">
           <input type="email" id="email" placeholder="Enter your email" required>
           <button type="submit">Notify Me</button>
           <p class="error-message" id="error-message"></p>
-        </form>
-      </div>
-      
-      <!-- Image Section (Right Side) -->
-      <div class="image-container">
-        <img src="images/hero-desktop.jpg" alt="Coming Soon Image">
-      </div>
-    </section>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right side: Image -->
+    <div class="image-container">
+      <img src="images/hero-desktop.jpg" alt="Coming Soon Image">
+    </div>
   </main>
 
   <!-- Footer -->
